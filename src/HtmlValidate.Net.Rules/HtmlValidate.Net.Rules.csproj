@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Content\" />
+      <Folder Include="Deprecated\" />
+      <Folder Include="Document\" />
+      <Folder Include="Other\" />
+      <Folder Include="Seo\" />
+      <Folder Include="Style\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="HtmlAgilityPack" Version="1.12.4" />
+    </ItemGroup>
+
+</Project>
