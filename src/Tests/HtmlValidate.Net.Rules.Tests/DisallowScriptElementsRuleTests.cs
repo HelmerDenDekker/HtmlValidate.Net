@@ -8,7 +8,7 @@ namespace HtmlValidate.Net.Rules.Tests;
 public class DisallowScriptElementsRuleTests
 {
     [Test]
-    public void DisallowScriptElementsRule_HtmlHasScript_IsValidShouldReturnFalse()
+    public void IsValid_HtmlHasScript_ShouldReturnFalse()
     {
         // Arrange
         var html = "<html><head><script>alert('test');</script></head><body></body></html>";
@@ -24,7 +24,7 @@ public class DisallowScriptElementsRuleTests
     }
     
     [Test]
-    public void DisallowScriptElementsRule_HtmlWithNoScript_IsValidShouldReturnTrue()
+    public void IsValid_HtmlWithNoScript_ShouldReturnTrue()
     {
         // Arrange
         var html = "<html><head></head><body></body></html>";
