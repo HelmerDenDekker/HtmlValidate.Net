@@ -3,15 +3,15 @@ using HtmlAgilityPack;
 
 namespace HtmlValidate.Net.Rules.Content;
 
-public class RequireElementAncestorsRule : BaseValidator<HtmlDocument>
+public class RequireElementAncestorsRule : BaseValidator<IEnumerable<HtmlNode>>
 {
-    public override bool IsValid(HtmlDocument model)
+    public override bool IsValid(IEnumerable<HtmlNode> model)
     {
         // start with documentNode here
 
-        // an li child element, should have an <ul>, <ol> or <menu> direct parent
+        // a li child element, should have an <ul>, <ol> or <menu> direct parent
 
-        model.DocumentNode.Descendants()
+        model
             .Where(n => n.Name == "li")
             .ToList()
             .ForEach(li =>

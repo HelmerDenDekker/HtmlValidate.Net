@@ -17,7 +17,7 @@ public class RequireElementAncestorsRuleTests
         var validator = new RequireElementAncestorsRule();
 
         // Act
-        var result = validator.IsValid(doc);
+        var result = validator.IsValid(doc.DocumentNode.Descendants());
 
         // Assert
         Assert.That(result, Is.True);
@@ -34,7 +34,7 @@ public class RequireElementAncestorsRuleTests
         var validator = new RequireElementAncestorsRule();
 
         // Act
-        var result = validator.IsValid(doc);
+        var result = validator.IsValid(doc.DocumentNode.Descendants());
 
         // Assert
         Assert.That(result, Is.False);
@@ -50,14 +50,14 @@ public class RequireElementAncestorsRuleTests
         var validator = new RequireElementAncestorsRule();
         
         // Act
-        var result = validator.IsValid(doc);
+        var result = validator.IsValid(doc.DocumentNode.Descendants());
         
         // Assert
         Assert.That(result, Is.True);
     }
     
     /// <summary>
-    /// A subitem in a list is parsed by a html parser as a member of the parent node ul or ol.
+    /// A subitem in a list is parsed by a html parser as a member of the parent node ul or ol: https://html.spec.whatwg.org/multipage/syntax.html#writing
     /// </summary>
     [Test]
     public void IsValid_LiWithOlAncestorAndLiSubItem_ShouldReturnTrue()
@@ -69,7 +69,7 @@ public class RequireElementAncestorsRuleTests
         var validator = new RequireElementAncestorsRule();
         
         // Act
-        var result = validator.IsValid(doc);
+        var result = validator.IsValid(doc.DocumentNode.Descendants());
         
         // Assert
         Assert.That(result, Is.True);
@@ -86,7 +86,7 @@ public class RequireElementAncestorsRuleTests
         var validator = new RequireElementAncestorsRule();
 
         // Act
-        var result = validator.IsValid(doc);
+        var result = validator.IsValid(doc.DocumentNode.Descendants());
 
         // Assert
         Assert.That(result, Is.True);
@@ -102,7 +102,7 @@ public class RequireElementAncestorsRuleTests
         var validator = new RequireElementAncestorsRule();
         
         // Act
-        var result = validator.IsValid(doc);
+        var result = validator.IsValid(doc.DocumentNode.Descendants());
      
         // Assert
         Assert.That(result, Is.True);
