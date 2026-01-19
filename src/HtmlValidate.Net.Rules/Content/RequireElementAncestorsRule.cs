@@ -7,8 +7,6 @@ public class RequireElementAncestorsRule : BaseValidator<IEnumerable<HtmlNode>>
 {
     public override bool IsValid(IEnumerable<HtmlNode> model)
     {
-        // start with documentNode here
-
         // a li child element, should have an <ul>, <ol> or <menu> direct parent
 
         model
