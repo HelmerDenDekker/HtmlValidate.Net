@@ -14,13 +14,8 @@ public class RequireHeadingsTextContentRule : BaseValidator<IEnumerable<HtmlNode
 {
     public override bool IsValid(IEnumerable<HtmlNode> model)
     {
-        // clear any previous results in case the same instance is reused
-        Results.Clear();
-
-        if (model == null)
-        {
+        if (!model.Any())
             return true;
-        }
 
         var headingNames = new[] { "h1", "h2", "h3", "h4", "h5", "h6" };
 
