@@ -3,26 +3,22 @@ using HtmlAgilityPack;
 
 namespace HtmlValidate.Net.Rules.Content;
 
-public class AllowedChildElementsRule : BaseValidator<IEnumerable<HtmlNode>>
+public class AllowedChildElementsRule : HandlerBase<ValidationRequest>
 {
-    public override bool IsValid(IEnumerable<HtmlNode> model)
+    protected override void HandleInternal(ValidationRequest request)
     {
-        // an ol, ul or menu element should only have li child elements
-
-        model
+        request.HtmlNodes
             .Where(n => n.Name == "ol" || n.Name == "ul" || n.Name == "menu")
             .ToList()
             .ForEach(parent =>
             {
                 var invalidChildren = parent.ChildNodes
-                    .Where(c => c.NodeType == HtmlNodeType.Element && !c.Name.Equals("li", StringComparison.OrdinalIgnoreCase))
+                    .Where(c => c.NodeType == HtmlNodeType.Element &&
+                                !c.Name.Equals("li", StringComparison.OrdinalIgnoreCase))
                     .ToList();
                 if (invalidChildren.Any())
-                {
-                    Results.Add(new ValidationResult($"Only <li> elements are allowed as children of <{parent.Name}>."));
-                }
+                    request.Results.Add(
+                        new ValidationResult($"Only <li> elements are allowed as children of <{parent.Name}>."));
             });
-        
-        return Results.Count == 0;
     }
 }

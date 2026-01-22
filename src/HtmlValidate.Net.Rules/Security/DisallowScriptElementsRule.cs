@@ -1,19 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using HtmlAgilityPack;
 
 namespace HtmlValidate.Net.Rules.Security;
 
-public class DisallowScriptElementsRule : BaseValidator<IEnumerable<HtmlNode>>
+public class DisallowScriptElementsRule : HandlerBase<ValidationRequest>
 {
-    public override bool IsValid(IEnumerable<HtmlNode> model)
+    protected override void HandleInternal(ValidationRequest request)
     {
-        model
-            .Where(n=>n.Name.Equals("script", StringComparison.InvariantCultureIgnoreCase))
+        request.HtmlNodes
+            .Where(n => n.Name.Equals("script", StringComparison.InvariantCultureIgnoreCase))
             .ToList()
-            .ForEach(n=>
-        {
-            Results.Add(new ValidationResult($"Disallowed HTML Element: <{n.Name}> found."));
-        });
-        return Results.Count == 0;
+            .ForEach(n =>
+            {
+                request.Results.Add(new ValidationResult($"Disallowed HTML Element: <{n.Name}> found."));
+            });
     }
 }
