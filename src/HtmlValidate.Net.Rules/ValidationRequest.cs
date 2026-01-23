@@ -11,6 +11,7 @@ public class ValidationRequest
         doc.LoadHtml(html);
         Document = doc;
         HtmlNodes = doc.DocumentNode.Descendants();
+        Results.AddRange(doc.ParseErrors.ToValidationResults());
     }
 
     public HtmlDocument Document { get; }
@@ -19,5 +20,5 @@ public class ValidationRequest
 
     public bool IsValid => Results.Count == 0;
 
-    public List<ValidationResult> Results { get; set; } = new();
+    public List<ValidationResult> Results { get; } = new();
 }
