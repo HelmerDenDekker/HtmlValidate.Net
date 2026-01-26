@@ -19,7 +19,7 @@ public class RequireHeadingsTextContentRule : HandlerBase<ValidationRequest>
         var headingNames = new[] { "h1", "h2", "h3", "h4", "h5", "h6" };
 
         foreach (var node in request.HtmlNodes.Where(n =>
-                     n != null && headingNames.Any(h => h.Equals(n.Name, StringComparison.InvariantCultureIgnoreCase))))
+                     headingNames.Any(h => h.Equals(n.Name, StringComparison.InvariantCultureIgnoreCase))))
         {
             if (HtmlStringHelper.HasMeaningfulText(node))
                 continue;

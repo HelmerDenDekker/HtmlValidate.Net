@@ -5,7 +5,7 @@ namespace HtmlValidate.Net.Rules;
 
 public static class HtmlStringHelper
 {
-    public static IEnumerable<char> InvisibleHtmlStrings = new List<char>
+    public static readonly IEnumerable<char> InvisibleHtmlStrings = new List<char>
     {
         '\u00A0', // NO-BREAK SPACE (&nbsp;)
         '\u1680', // OGHAM SPACE MARK

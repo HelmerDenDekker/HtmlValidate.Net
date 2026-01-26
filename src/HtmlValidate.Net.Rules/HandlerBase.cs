@@ -2,7 +2,7 @@
 
 public abstract class HandlerBase<T> : IHandler<T> where T : class
 {
-    private IHandler<T> _nextHandler;
+    private IHandler<T>? _nextHandler;
 
     public void Handle(T request)
     {

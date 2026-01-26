@@ -2,8 +2,8 @@
 
 public class ChainBuilder<TRequest> where TRequest : class
 {
-    private HandlerBase<TRequest> _currentHandler;
-    private HandlerBase<TRequest> _firstHandler;
+    private HandlerBase<TRequest>? _currentHandler;
+    private HandlerBase<TRequest>? _firstHandler;
 
     // Add Handler
     public ChainBuilder<TRequest> RegisterHandler<THandler>() where THandler : HandlerBase<TRequest>, new()

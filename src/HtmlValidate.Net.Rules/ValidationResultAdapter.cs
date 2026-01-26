@@ -7,9 +7,6 @@ public static class ValidationResultAdapter
 {
     public static IEnumerable<ValidationResult> ToValidationResults(this IEnumerable<HtmlParseError> htmlParseErrors)
     {
-        foreach (var error in htmlParseErrors)
-        {
-            yield return new ValidationResult(error.Reason);
-        }
+        return htmlParseErrors.Select(error => new ValidationResult(error.Reason));
     }
 }
