@@ -7,7 +7,7 @@ public class RequiredAncestorElementRule : HandlerBase<ValidationRequest>
     protected override void HandleInternal(ValidationRequest request)
     {
         // a li child element, should have an <ul>, <ol> or <menu> direct parent
-        request.HtmlNodes
+        request.Nodes
             .Where(n => n.Name == "li")
             .ToList()
             .ForEach(li =>

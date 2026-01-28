@@ -1,7 +1,8 @@
 ﻿using System.Globalization;
 using HtmlAgilityPack;
+using HtmlValidate.Net.Core.HtmlWrapper;
 
-namespace HtmlValidate.Net.Rules;
+namespace HtmlValidate.Net.Core.AgilityPackWrapper;
 
 public static class HtmlStringHelper
 {
@@ -32,7 +33,7 @@ public static class HtmlStringHelper
         '\u200F' // RLM
     };
 
-    public static bool HasMeaningfulText(HtmlNode node)
+    public static bool HasMeaningfulText(Node node)
     {
         // decode HTML entities (e.g. &nbsp;, &shy;, &#8203;) to actual characters
         var text = HtmlEntity.DeEntitize(node.InnerText);

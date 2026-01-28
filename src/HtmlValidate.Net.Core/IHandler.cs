@@ -1,4 +1,4 @@
-﻿namespace HtmlValidate.Net.Rules;
+﻿namespace HtmlValidate.Net.Core;
 
 public interface IHandler<T> where T : class
 {

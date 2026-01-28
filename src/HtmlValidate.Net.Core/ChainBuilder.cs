@@ -1,4 +1,4 @@
-﻿namespace HtmlValidate.Net.Rules;
+﻿namespace HtmlValidate.Net.Core;
 
 public class ChainBuilder<TRequest> where TRequest : class
 {

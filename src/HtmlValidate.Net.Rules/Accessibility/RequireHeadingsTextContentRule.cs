@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using HtmlValidate.Net.Core;
+using HtmlValidate.Net.Core.AgilityPackWrapper;
 
 namespace HtmlValidate.Net.Rules.Accessibility;
 
@@ -10,7 +12,7 @@ public class RequireHeadingsTextContentRule : HandlerBase<ValidationRequest>
 {
     protected override void HandleInternal(ValidationRequest request)
     {
-        if (request.HtmlNodes.Any())
+        if (request.Nodes.Any())
             ValidateHtmlNodes(request);
     }
 
@@ -18,7 +20,7 @@ public class RequireHeadingsTextContentRule : HandlerBase<ValidationRequest>
     {
         var headingNames = new[] { "h1", "h2", "h3", "h4", "h5", "h6" };
 
-        foreach (var node in request.HtmlNodes.Where(n =>
+        foreach (var node in request.Nodes.Where(n =>
                      headingNames.Any(h => h.Equals(n.Name, StringComparison.InvariantCultureIgnoreCase))))
         {
             if (HtmlStringHelper.HasMeaningfulText(node))

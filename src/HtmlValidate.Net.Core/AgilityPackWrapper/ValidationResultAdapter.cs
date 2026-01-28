@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using HtmlAgilityPack;
 
-namespace HtmlValidate.Net.Rules;
+namespace HtmlValidate.Net.Core.AgilityPackWrapper;
 
 public static class ValidationResultAdapter
 {

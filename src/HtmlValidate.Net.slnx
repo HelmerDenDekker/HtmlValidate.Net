@@ -2,5 +2,6 @@
   <Folder Name="/Tests/">
     <Project Path="Tests/HtmlValidate.Net.Rules.Tests/HtmlValidate.Net.Rules.Tests.csproj" />
   </Folder>
+  <Project Path="HtmlValidate.Net.Core/HtmlValidate.Net.Core.csproj" />
   <Project Path="HtmlValidate.Net.Rules/HtmlValidate.Net.Rules.csproj" />
 </Solution>

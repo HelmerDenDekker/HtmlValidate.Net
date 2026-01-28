@@ -1,4 +1,4 @@
-﻿namespace HtmlValidate.Net.Rules;
+﻿namespace HtmlValidate.Net.Core;
 
 public abstract class HandlerBase<T> : IHandler<T> where T : class
 {

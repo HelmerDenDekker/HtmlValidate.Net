@@ -6,7 +6,7 @@ public class DisallowScriptElementsRule : HandlerBase<ValidationRequest>
 {
     protected override void HandleInternal(ValidationRequest request)
     {
-        request.HtmlNodes
+        request.Nodes
             .Where(n => n.Name.Equals("script", StringComparison.InvariantCultureIgnoreCase))
             .ToList()
             .ForEach(n =>
