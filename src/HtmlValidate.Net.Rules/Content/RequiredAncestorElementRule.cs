@@ -8,7 +8,7 @@ public class RequiredAncestorElementRule : HandlerBase<ValidationRequest>
     {
         // a li child element, should have an <ul>, <ol> or <menu> direct parent
         request.HtmlNodes
-            .Where(n => n.Name == "li")
+            .Where(n => n.Name.Equals("li", StringComparison.OrdinalIgnoreCase))
             .ToList()
             .ForEach(li =>
             {
