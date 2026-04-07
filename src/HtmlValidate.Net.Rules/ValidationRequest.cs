@@ -10,7 +10,7 @@ public class ValidationRequest
         var doc = new HtmlDocument();
         doc.LoadHtml(html);
         Document = doc;
-        HtmlNodes = doc.DocumentNode.Descendants();
+        HtmlNodes = new List<HtmlNode>(doc.DocumentNode.Descendants());
         Results.AddRange(doc.ParseErrors.ToValidationResults());
     }
 
