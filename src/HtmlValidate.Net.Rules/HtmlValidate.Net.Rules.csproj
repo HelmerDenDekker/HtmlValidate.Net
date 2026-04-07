@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Content\" />
       <Folder Include="Deprecated\" />
       <Folder Include="Document\" />
       <Folder Include="Other\" />
