@@ -67,7 +67,7 @@ public class RequiredAncestorElementRuleTests
     public void IsValid_LiWithOlAncestorAndLiSubItem_ShouldReturnTrue()
     {
         // Arrange
-        var html = "<ol><li>Item<li>SubItem</li></li></ol>";
+        var html = "<ol><li>Item<ol><li>SubItem</li></li></ol>";
         var validationRequest = new ValidationRequest(html);
 
         // Act
