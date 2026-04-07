@@ -11,7 +11,7 @@ public class ValidationChainBuilderTests
         var builder = new ChainBuilder<object>();
 
         // Act & Assert
-        Assert.Throws<NullReferenceException>(() => builder.Build());
+        Assert.Throws<InvalidOperationException>(() => builder.Build());
     }
 
     // TODO rename test
