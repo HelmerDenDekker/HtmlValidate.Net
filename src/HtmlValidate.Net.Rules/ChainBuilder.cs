@@ -24,6 +24,6 @@ public class ChainBuilder<TRequest> where TRequest : class
 
     public HandlerBase<TRequest> Build()
     {
-        return _firstHandler ?? throw new NullReferenceException("There are no handlers registered.");
+        return _firstHandler ?? throw new InvalidOperationException("There are no handlers registered.");
     }
 }
