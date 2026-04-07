@@ -8,7 +8,7 @@ public class AllowedChildElementsRule : HandlerBase<ValidationRequest>
     protected override void HandleInternal(ValidationRequest request)
     {
         request.HtmlNodes
-            .Where(n => n.Name == "ol" || n.Name == "ul" || n.Name == "menu")
+            .Where(n => n.Name.Equals("ol", StringComparison.OrdinalIgnoreCase) || n.Name.Equals("ul", StringComparison.OrdinalIgnoreCase) || n.Name.Equals("menu", StringComparison.OrdinalIgnoreCase))
             .ToList()
             .ForEach(parent =>
             {
